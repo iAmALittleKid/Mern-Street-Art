@@ -88,13 +88,20 @@ body {
   p {
     font-size: 1.2em;
   }
+  padding: 60px;
 }
 
-// --------------------
-// Style for Secret component
-.Secret {
-  .result {
-    font-size: 1.2em;
-    color: $primary;
+.list {
+  h1 {
+    margin-bottom: 30px;
+  }
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+  padding: 60px;
+  th {
+    font-size: 14px;
   }
 }

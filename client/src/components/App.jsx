@@ -6,20 +6,10 @@ import Maps from './pages/Maps';
 import NewStreetArt from './pages/NewStreetArt';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import api from '../api';
-import MainNavbar from "../MainNavbar"
+import MainNavbar from "../MainNavbar";
+import StreetArtDetail from "./pages/StreetArtDetail"
 
 export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      countries: []
-    }
-  }
-
-  handleLogoutClick(e) {
-    api.logout()
-  }
 
   render() {
     return (
@@ -34,6 +24,7 @@ export default class App extends Component {
           <Route path="/new-street-art" component={NewStreetArt} />
           <Route path="/signup" component={Signup} />
           <Route path="/login" component={Login} />
+          <Route path="/street-art-detail" component={StreetArtDetail} />
           <Route render={() => <h2>404</h2>} />
         </Switch>
       </div>

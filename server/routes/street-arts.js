@@ -16,6 +16,7 @@ router.get('/', (req, res, next) => {
 
 // Route to get Street Art by ID
 router.get('/:streetArtId', (req,res,next) => {
+  console.log("ysvbjhs", req.params.streetArtId)
   StreetArt.findById(req.params.streetArtId)
     .then(streetart => {
       if(streetart) {

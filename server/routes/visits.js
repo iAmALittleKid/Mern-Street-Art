@@ -28,16 +28,22 @@ router.post("/visits", isLoggedIn, (req, res, next) => {
     .catch(err => next(err))
 })
 
+// Route to delete a visit
 router.delete("/visits/:visitId", isLoggedIn, (req,res,next) => {
-  Visit.findByIdAndRemove(req.params.visitId)
-    .then(visit => {
-      res.json({
-        success: true,
-        visit,
-        message: "The visit was successfully deleted"
+  Visit.findById(req.params.visitId)
+  .then(visit => {
+    if(visit._user.equals(req.user._id) ){
+      Visit.findByIdAndRemove(req.params.visitId)
+      .then(visit => {
+        res.json({
+          success: true,
+          visit,
+          message: "The visit was successfully deleted"
+        })
       })
-    })
-    .catch(err => next(err))
+      .catch(err => next(err))
+    } else {}
+  }) 
 })
 
 module.exports = router;
